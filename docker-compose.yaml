@@ -13,7 +13,7 @@ services:
           - node.labels.role == worker
 
   todo_app:
-    image: vikyath11/todo-app-artifactory:v19
+    image: vikyath11/todo-app-artifactory:v20
     ports:
       - "3001:3001"
     deploy:
