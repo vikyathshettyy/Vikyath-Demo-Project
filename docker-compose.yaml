@@ -12,7 +12,7 @@ services:
         constraints:
           - node.labels.role == worker
 
-  custom_app:
+  todo_app:
     image: vikyath11/todo-app-artifactory:v13
     ports:
       - "3001:3001"
