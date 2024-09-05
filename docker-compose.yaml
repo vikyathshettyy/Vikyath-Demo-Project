@@ -6,7 +6,7 @@ services:
     volumes:
       - mongodb-data:/data/db
   custom_app:
-    build: ./
+    image: vikyath11/todo-app-artifactory:v12
     ports:
       - "3001:3001"
 
