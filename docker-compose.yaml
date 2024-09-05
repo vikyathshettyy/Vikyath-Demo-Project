@@ -1,3 +1,20 @@
+# services:
+#   mongodbi_db:
+#     image: mongo:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongodb-data:/data/db
+#   custom_app:
+#     image: vikyath11/todo-app-artifactory:v13
+#     ports:
+#       - "3001:3001"
+
+# volumes:
+#   mongodb-data:
+
+version: '3.8'
+
 services:
   mongodbi_db:
     image: mongo:latest
@@ -5,10 +22,20 @@ services:
       - "27017:27017"
     volumes:
       - mongodb-data:/data/db
+    deploy:
+      placement:
+        constraints:
+          - node.labels.role == worker
+
   custom_app:
     image: vikyath11/todo-app-artifactory:v13
     ports:
       - "3001:3001"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.role == worker
 
 volumes:
   mongodb-data:
+
