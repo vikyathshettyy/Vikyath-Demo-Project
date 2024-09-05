@@ -19,7 +19,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.labels.role == appserver
+          - node.labels.role == worker
 
 volumes:
   mongodb-data:
