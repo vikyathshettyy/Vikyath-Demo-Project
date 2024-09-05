@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+
+  todo-app:
+    image: vikyath11/todo-app-artifactory:v4
+    ports:
+      - "3001:3001"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.role == worker
+
+  calc-app:
+    image: vikyath11/vikyath-artifactory:v37
+    ports:
+      - "3000:3000"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.role == worker
+
+  mongodbcont:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    deploy:
+      placement:
+        constraints:
+          - node.labels.type == worker
+
+volumes:
+  mongodb-data:
