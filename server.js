@@ -7,7 +7,7 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://3.109.56.32:27017/todo-devops");
+mongoose.connect("mongodb://13.233.157.204:27017/todo-devops");
 
 mongoose.connection.on("error", (error) => {
     console.error("MongoDB connection error:", error);
